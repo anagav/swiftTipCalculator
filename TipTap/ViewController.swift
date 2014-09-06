@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
        var defaults = NSUserDefaults.standardUserDefaults() 
        tipSegmentControll.selectedSegmentIndex = defaults.integerForKey("selectedIndex")
+        calculateTip()
     }
 
     override func didReceiveMemoryWarning() {
