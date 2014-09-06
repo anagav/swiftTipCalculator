@@ -17,7 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet var tapGestureListener: UITapGestureRecognizer!
     override func viewDidLoad() {
         super.viewDidLoad()
+         var defaults = NSUserDefaults.standardUserDefaults()
+         tipSegmentControll.selectedSegmentIndex = defaults.integerForKey("selectedIndex")
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+       var defaults = NSUserDefaults.standardUserDefaults() 
+       tipSegmentControll.selectedSegmentIndex = defaults.integerForKey("selectedIndex")
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,16 +40,16 @@ class ViewController: UIViewController {
             tip = 10
             break
         case 1:
-            tip = 20
+            tip = 15
             break
         case 2:
-            tip = 30
+            tip = 20
             break
         default:
             break
         }
         
-        tipAmountLabel.text = "\(tip)"
+        tipAmountLabel.text = "$\(tip)"
         
         finalAmountLabel.text = "$"+"\(billAmount + (billAmount * tip / 100))";
     }
@@ -52,9 +59,15 @@ class ViewController: UIViewController {
         view.endEditing(true);
     }
     
-    @IBAction func indexChanged(sender : UISegmentedControl) {
+    @IBAction func billAmountChanged(sender: AnyObject) {
+        calculateTip()
+    }
+
+    
+    @IBAction func indexChanged(sender: UISegmentedControl) {
         calculateTip();
     }
+    
     
     
     
