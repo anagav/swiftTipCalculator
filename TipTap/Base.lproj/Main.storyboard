@@ -86,7 +86,7 @@
                     <navigationItem key="navigationItem" title="TipCalculator" id="fcP-df-Zuj">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="T3P-Pu-9Jw">
                             <connections>
-                                <segue destination="Xoe-f8-hDQ" kind="modal" identifier="SettingsView" animates="NO" id="wUy-f2-Y82"/>
+                                <segue destination="Xoe-f8-hDQ" kind="modal" identifier="SettingsView" modalTransitionStyle="flipHorizontal" id="wUy-f2-Y82"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -132,11 +132,13 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FnR-BX-KQM">
-                                <rect key="frame" x="124" y="306" width="40" height="34"/>
+                                <rect key="frame" x="122" y="314" width="76" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.51467765618772887" green="0.70039790266450241" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.1509803995" green="0.15459059850000001" blue="0.1654211957" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onSaveClick:" destination="Xoe-f8-hDQ" eventType="touchUpInside" id="nkT-qY-y3V"/>
