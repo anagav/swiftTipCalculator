@@ -50,7 +50,7 @@ class ViewController: UIViewController {
             break
         }
         
-        tipAmountLabel.text = "$\(tip)"
+        tipAmountLabel.text = "$\((billAmount * tip / 100))"
         
         finalAmountLabel.text = "$"+"\(billAmount + (billAmount * tip / 100))";
     }
