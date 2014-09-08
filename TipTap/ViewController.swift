@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipAmountLabel: UILabel!
     @IBOutlet weak var finalAmountLabel: UILabel!
     @IBOutlet weak var tipSegmentControll: UISegmentedControl!
+    @IBOutlet weak var customTipPercentage: UITextField!
     
+    @IBOutlet weak var perPersonAmount: UILabel!
     @IBOutlet var tapGestureListener: UITapGestureRecognizer!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-       var defaults = NSUserDefaults.standardUserDefaults() 
+       var defaults = NSUserDefaults.standardUserDefaults()
        tipSegmentControll.selectedSegmentIndex = defaults.integerForKey("selectedIndex")
         calculateTip()
     }
@@ -50,9 +52,20 @@ class ViewController: UIViewController {
             break
         }
         
-        tipAmountLabel.text = "$\((billAmount * tip / 100))"
+        tipAmountLabel.text = "$ \((billAmount * tip / 100))"
         
-        finalAmountLabel.text = "$"+"\(billAmount + (billAmount * tip / 100))";
+        var finalAmount = billAmount + (billAmount * tip / 100)
+        
+        finalAmountLabel.text = "$ "+"\(finalAmount)";
+        
+        var numPersons = NSString(string: customTipPercentage.text).doubleValue
+        if numPersons==0 {
+            perPersonAmount.text = "$ "+"0"
+            return
+        }
+        
+        perPersonAmount.text = "$ "+"\(finalAmount/numPersons)"
+        
     }
     
     @IBAction func onTap(sender: AnyObject) {
@@ -69,6 +82,10 @@ class ViewController: UIViewController {
         calculateTip();
     }
     
+    @IBAction func numPersonsChanged(sender: AnyObject) {
+        
+        calculateTip()
+    }
     
     
     
